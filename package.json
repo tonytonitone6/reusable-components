@@ -1,5 +1,5 @@
 {
-  "name": "@codeef/reusable-components",
+  "name": "@stanmao/reusable-components",
   "version": "1.0.1",
   "description": "This package implements react components based on MUI",
   "type": "module",
