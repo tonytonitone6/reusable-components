@@ -1,24 +1,25 @@
 {
-  "name": "@stanmao/reusable-components",
-  "version": "1.0.0",
+  "name": "@codeef/reusable-components",
+  "version": "1.0.1",
   "description": "This package implements react components based on MUI",
   "type": "module",
-  "main": "lib/index.cjs",
+  "main": "lib/cjs/index.js",
   "exports": {
     "import": {
-      "default": "./lib/index.esm.js",
+      "default": "./lib/esm/index.js",
       "types": "./lib/types/index.d.ts"
     },
     "require": {
-      "default": "./lib/index.cjs",
+      "default": "./lib/cjs/index.js",
       "types": "./lib/types/index.d.ts"
     }
   },
+  "sideEffects": false,
   "files": [
     "lib"
   ],
   "scripts": {
-    "build": "rollup -c --bundleConfigAsCjs",
+    "build": "rimraf ./lib && tsc --skipLibCheck --project tsconfig.esm.json && tsc --skipLibCheck --project tsconfig.cjs.json",
     "release-package": "npm run build && npx changeset publish"
   },
   "author": "codeef",
@@ -34,11 +35,7 @@
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.1",
-    "@rollup/plugin-commonjs": "^25.0.7",
-    "@rollup/plugin-node-resolve": "^15.2.3",
-    "rollup": "^4.13.0",
-    "rollup-plugin-delete": "^2.0.0",
-    "rollup-plugin-typescript2": "^0.36.0",
+    "rimraf": "^6.0.1",
     "typescript": "^5.4.2"
   }
 }
